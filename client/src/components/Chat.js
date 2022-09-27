@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import "./Chat.css"
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 function Chat({socket, userName, room}) {
 
@@ -35,33 +37,37 @@ function Chat({socket, userName, room}) {
     }, [socket])
 
     return (
-        <div>
+        <div className="chat-app">
             <div className="chat">
-                <div className="chat-main">
-                    {
-                        messageList.map(
-                            messages => (
-                                <div className="mesages" id={userName === messages.author ? "you" : "other"}>
-                                    <tbody>
-                                        <tr>
-                                            <td>{messages.message}</td>
-                                        </tr>
-                                        <tr>
-                                            <h6>{messages.author} - {messages.time}</h6>
-                                        </tr>
-                                    </tbody>
-                                </div>
-                                
-                                
-                            )
-                        )
-                    }
+                <div className="chat-body">
+                        <ScrollToBottom className="message-container">
+                            {
+                                messageList.map(
+                                    messages => (
+                                        <div className="messages" id={userName === messages.author ? "you" : "other"}>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{messages.message}</td>
+                                                </tr>
+                                                <tr>
+                                                    <h6>{messages.author} - {messages.time}</h6>
+                                                </tr>
+                                            </tbody>
+                                        </div>
+                                        
+                                        
+                                    )
+                                )
+                            }
+                        </ScrollToBottom>
                 </div>
             </div>
+
             <div className="chat-send">
                 <input type="text" value={currentMessage} onChange={(e) => setCurrentMessage(e.target.value)} />
                 <button onClick={sendMessage}>SEND</button>
             </div>
+            
         </div>
     )
 }
