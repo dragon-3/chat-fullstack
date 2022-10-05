@@ -5,6 +5,7 @@ const cors = require('cors');
 const {Server} = require('socket.io');
 
 app.use(cors());
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 const server = http.createServer(app);
 
