@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Chat from './Chat';
 import io from "socket.io-client" 
 
-const socket = io.connect('https://chat-fullstack-3.herokuapp.com/')
+const socket = io.connect('https://chat-fullstack-backend.herokuapp.com/')
 
 function Home() {
     const [userName, setUserName] = useState('');
