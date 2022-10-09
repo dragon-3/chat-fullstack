@@ -11,10 +11,7 @@
 
 .chat-app .chat-body {
     height: calc(450px - (45px + 70px));
-    
 }
-
-
 
 .messages {
     display: flex;

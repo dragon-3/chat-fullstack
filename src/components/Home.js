@@ -3,6 +3,8 @@ import {useNavigate, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom'
 import Chat from './Chat';
 import io from "socket.io-client" 
+import { Form, Button } from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const socket = io.connect('https://chat-backend-2.herokuapp.com/')
 
@@ -33,11 +35,13 @@ function Home() {
             <div className="login">
                 <h2>Start Chatting!</h2>
                 <div className='form'>
-                    <label htmlFor="" >Name</label>
-                    <input type="text" onChange={(e) => setUserName(e.target.value)} /><br />
-                    <label htmlFor="" >Room</label>
-                    <input type="text" onChange={(e) => setRoom(e.target.value)}/><br />
-                    <button onClick={joinRoom}>Join</button>
+                    <Form>
+                        <Form.Label htmlFor="" ></Form.Label>
+                        <Form.Control type="text" placeholder='Name' onChange={(e) => setUserName(e.target.value)} />
+                        <Form.Label htmlFor="" ></Form.Label>
+                        <Form.Control type="text" placeholder='Room' onChange={(e) => setRoom(e.target.value)}/><br />
+                    </Form>
+                    <Button onClick={joinRoom}>Join</Button>
                 </div>
             </div>
         }
