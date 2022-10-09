@@ -5,6 +5,10 @@
     height: 100vh;
 }
 
+.form h6 {
+    color: red;
+}
+
 .chat-app {
     height: 420px;
 }
